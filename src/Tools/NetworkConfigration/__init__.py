@@ -1,2 +1,2 @@
-from DeviceInfoTools import DeviceInfoTools 
-from DeviceHandelerConfigTools import DeviceHandelerConfigTools
+from .DeviceInfoTools import DeviceInfoTools 
+from .DeviceHandelerConfigTools import DeviceHandelerConfigTools
