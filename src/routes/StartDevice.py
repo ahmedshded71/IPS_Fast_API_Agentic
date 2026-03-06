@@ -19,7 +19,7 @@ StartDevice_Routes = APIRouter(
 )
 
 # start device endpoint
-@StartDevice_Routes.post("/StartDevice", status_code=status.HTTP_201_CREATED)
+@StartDevice_Routes.get("/StartDevice", status_code=status.HTTP_201_CREATED)
 async def StartDevice( request: Request,settings: Settings =  Depends(get_settings)):
 
     VirtualCloudProvider.initialize(settings)
@@ -33,7 +33,7 @@ async def StartDevice( request: Request,settings: Settings =  Depends(get_settin
         content={"message": NetworkConfigrationToolsEnums.DEVICE_CONFIGRATION_RESPONSE.value},
         status_code=status.HTTP_201_CREATED)
 
-@StartDevice_Routes.post("/ShowDeviceConfig", status_code=status.HTTP_201_CREATED)
+@StartDevice_Routes.get("/ShowDeviceConfig", status_code=status.HTTP_201_CREATED)
 async def ShowDeviceConfig( request: Request,settings: Settings = Depends(get_settings)):
     virtual_Firewall=VirtualFirewall()
     virtual_Router=VirtualRouter()
@@ -41,7 +41,7 @@ async def ShowDeviceConfig( request: Request,settings: Settings = Depends(get_se
     virtual_CloudProvider=VirtualCloudProvider()
     PC1_device=PC1()
     PC2_device=PC2()
-    if virtual_Firewall and virtual_Router and virtual_Switch:
+    if virtual_Firewall and virtual_Router and virtual_Switch and virtual_CloudProvider and PC1_device and PC2_device :
         return JSONResponse(
         content={"message":[ NetworkConfigrationToolsEnums.DEVICE_CONFIGRATION_RESPONSE.value,
                             NetworkConfigrationToolsEnums.VIRTUAL_CLOUD_PROVIDER_CONFIGRATION.value,

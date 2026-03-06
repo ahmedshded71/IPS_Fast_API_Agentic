@@ -6,7 +6,7 @@ class DeviceType(Enum):
     SWITCH = "SWITCH"
     PC1 = "PC1"
     PC2 = "PC2"
-    CLOUDE = "CLOUDE_PROVIDER"
+    CLOUD = "CLOUD_PROVIDER"
 
 class DeviceConnectionStatus(Enum):
     CONNECTED = "Connected"

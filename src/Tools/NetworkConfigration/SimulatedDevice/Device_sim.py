@@ -68,7 +68,7 @@ class VirtualFirewall:
         cls.position = (0, 4)
         cls.connections = [
             {"device": DeviceType.ROUTER.value, "status": DeviceConnectionStatus.CONNECTED.value},
-            {"device": DeviceType.CLOUDE.value, "status": DeviceConnectionStatus.CONNECTED.value},
+            {"device": DeviceType.CLOUD.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC1.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.PC2.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.SWITCH.value, "status": DeviceConnectionStatus.DISCONNECTED.value}] 
@@ -103,7 +103,7 @@ class VirtualRouter:
         cls.position = (0, 3)  
         cls.connections = [
             {"device": DeviceType.SWITCH.value, "status": DeviceConnectionStatus.CONNECTED.value},
-            {"device": DeviceType.CLOUDE.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
+            {"device": DeviceType.CLOUD.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.FIREWALL.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC1.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.PC2.value, "status": DeviceConnectionStatus.DISCONNECTED.value}
@@ -142,7 +142,7 @@ class VirtualSwitch:
         cls.position = (0, 2)  
         cls.connections = [
             {"device": DeviceType.FIREWALL.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
-            {"device": DeviceType.CLOUDE.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
+            {"device": DeviceType.CLOUD.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.ROUTER.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC1.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC2.value, "status": DeviceConnectionStatus.CONNECTED.value}
@@ -178,7 +178,7 @@ class PC1:
         cls.position = (-1, 1)
         cls.connections = [
             {"device": DeviceType.ROUTER.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
-            {"device": DeviceType.CLOUDE.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
+            {"device": DeviceType.CLOUD.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.FIREWALL.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.SWITCH.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC2.value, "status": DeviceConnectionStatus.DISCONNECTED.value}
@@ -214,7 +214,7 @@ class PC2:
         cls.position = (1, 1)
         cls.connections = [
             {"device": DeviceType.ROUTER.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
-            {"device": DeviceType.CLOUDE.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
+            {"device": DeviceType.CLOUD.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.FIREWALL.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.SWITCH.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC1.value, "status": DeviceConnectionStatus.DISCONNECTED.value}
