@@ -18,21 +18,6 @@ StartDevice_Routes = APIRouter(
     tags=["IPS_Fast_API_Agentic_StartDevice", "START_DEVICE"],
 )
 
-# start device endpoint
-@StartDevice_Routes.get("/StartDevice", status_code=status.HTTP_201_CREATED)
-async def StartDevice( request: Request,settings: Settings =  Depends(get_settings)):
-
-    VirtualCloudProvider.initialize(settings)
-    VirtualFirewall.initialize(settings)
-    VirtualRouter.initialize(settings)
-    VirtualSwitch.initialize(settings)
-    PC1.initialize(settings)
-    PC2.initialize(settings)
-
-    return JSONResponse(
-        content={"message": NetworkConfigrationToolsEnums.DEVICE_CONFIGRATION_RESPONSE.value},
-        status_code=status.HTTP_201_CREATED)
-
 @StartDevice_Routes.get("/ShowDeviceConfig", status_code=status.HTTP_201_CREATED)
 async def ShowDeviceConfig( request: Request,settings: Settings = Depends(get_settings)):
     virtual_Firewall=VirtualFirewall()

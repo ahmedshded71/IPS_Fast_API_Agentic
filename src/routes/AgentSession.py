@@ -5,10 +5,9 @@ from fastapi import FastAPI, APIRouter, Depends, UploadFile, status, Request
 from fastapi.responses import JSONResponse
 from Helpers import get_settings, Settings
 from AgentEngine import NetworkInfoAgent
-from dotenv import load_dotenv
-import os
 from AgentEngine import AgentEnums
 from AgentEngine.AgentSchemas import AgentQuery
+import os
 
 
 
@@ -29,19 +28,6 @@ StartAgents = APIRouter(
 async def NetworkInfoAgentRoutes( request: Request ,session_id:str ,user_id:str,query: AgentQuery,
                                  settings: Settings =  Depends(get_settings),
                                  ):
-
-
-    
-    #set var env
-    load_dotenv()  
-    os.environ["GOOGLE_API_KEY"] = settings.GOOGLE_API_KEY
-    os.environ["OPENAI_API_KEY"] = settings.OPENAI_API_KEY
-    os.environ["MODEL_GEMINI_2_5_FLASH"] = settings.MODEL_GEMINI_2_5_FLASH
-    os.environ["LAMA_MODEL"] = settings.OLLAMA_MODEL
-    os.environ["APP_NAME"] = settings.APP_NAME
-    os.environ["GOOGLE_GENAI_USE_VERTEXAI"] = "False"
-
-
     # return var env
     MODEL_NAME = os.getenv("MODEL_GEMINI_2_5_FLASH")
     APP_NAME = os.getenv("APP_NAME")
