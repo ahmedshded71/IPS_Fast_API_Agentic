@@ -2,6 +2,8 @@ from pydantic import BaseModel, Field
 from pydantic_settings import BaseSettings
 from pydantic_settings import SettingsConfigDict
 from typing import List
+from dotenv import load_dotenv
+import os
 class Settings(BaseSettings):
     GOOGLE_API_KEY: str
     OPENAI_API_KEY: str
@@ -73,10 +75,20 @@ class Settings(BaseSettings):
     CLOUD_STP: bool 
 
 
+
+    MODEL_GEMINI_2_5_FLASH:str
+
+
     model_config = SettingsConfigDict(env_file=".env")
+
 
 def get_settings():
     return Settings()
+
+
+
+
+
 
 
 
