@@ -71,8 +71,7 @@ class VirtualFirewall:
             {"device": DeviceType.CLOUDE.value, "status": DeviceConnectionStatus.CONNECTED.value},
             {"device": DeviceType.PC1.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
             {"device": DeviceType.PC2.value, "status": DeviceConnectionStatus.DISCONNECTED.value},
-            {"device": DeviceType.SWITCH.value, "status": DeviceConnectionStatus.DISCONNECTED.value}
-        ] 
+            {"device": DeviceType.SWITCH.value, "status": DeviceConnectionStatus.DISCONNECTED.value}] 
 
     @classmethod
     def show_settings(cls):
