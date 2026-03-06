@@ -1,1 +1,1 @@
-from AgentQuery import AgentQuery
+from .AgentQuery import AgentQuery

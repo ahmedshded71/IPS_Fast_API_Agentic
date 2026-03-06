@@ -11,8 +11,9 @@ class NetworkInfoAgent:
     """
     Agent specialized in retrieving and reporting network info using DeviceInfoTools.
     """
-    def __init__(self, name: str, AgentModel: str, description: str = None, instruction: str = None
-                 ,user_id:str, session_id:str,):
+    def __init__(self, name: str, AgentModel: str,
+                 user_id:str, session_id:str,
+                description: str = None, instruction: str = None):
         self.name = name
         self.AgentModel = AgentModel
         self.description =description

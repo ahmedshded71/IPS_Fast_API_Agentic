@@ -1,1 +1,1 @@
-from AgentEnums import AgentEnums
+from .AgentEnums import AgentEnums

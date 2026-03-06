@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import base,StartDevice
+from routes import base,StartDevice,AgentSession
 from Helpers import get_settings
 
 
@@ -23,6 +23,7 @@ async def shutdown_span():
 
 app.include_router(base.base_routes)
 app.include_router(StartDevice.StartDevice_Routes)
+app.include_router(AgentSession.StartAgents)
 
 
 

@@ -1,2 +1,2 @@
-from NetworkConfigTools import DeviceInfoTools
-from NetworkConfigTools import DeviceHandelerConfigTools
+from .NetworkConfigTools import DeviceInfoTools
+from .NetworkConfigTools import DeviceHandelerConfigTools

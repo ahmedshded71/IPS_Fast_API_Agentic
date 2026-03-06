@@ -7,8 +7,8 @@ from Helpers import get_settings, Settings
 from AgentEngine import NetworkInfoAgent
 from dotenv import load_dotenv
 import os
-from ..AgentEngine.AgentEnums import AgentEnums
-from ..AgentEngine.AgentSchemas import AgentQuery
+from AgentEngine import AgentEnums
+from AgentEngine.AgentSchemas import AgentQuery
 
 # from models.enums import ResponseSignal,AssetTypeEnums
 import logging
@@ -17,15 +17,16 @@ import logging
 logger = logging.getLogger("uvicorn.error")
 
 # Create an APIRouter for data endpoints
-StartDevice_Routes = APIRouter(
+StartAgents = APIRouter(
     prefix="/API/V1/AgentSession",
     tags=["IPS_Fast_API_Agentic_StartDevice", "Agent_Session"],
 )
 
 # start device endpoint
-@StartDevice_Routes.post("/NetworkInfoAgentRoutes/{session_id}/{user_id}", status_code=status.HTTP_201_CREATED)
-async def NetworkInfoAgentRoutes( request: Request,settings: Settings =  Depends(get_settings),
-                                 query: AgentQuery ,session_id:str ,user_id:str):
+@StartAgents.post("/NetworkInfoAgentRoutes/{session_id}/{user_id}", status_code=status.HTTP_201_CREATED)
+async def NetworkInfoAgentRoutes( request: Request ,session_id:str ,user_id:str,query: AgentQuery,
+                                 settings: Settings =  Depends(get_settings),
+                                 ):
 
     load_dotenv()  
     os.environ["GOOGLE_API_KEY"] = settings.GOOGLE_API_KEY
@@ -45,7 +46,7 @@ async def NetworkInfoAgentRoutes( request: Request,settings: Settings =  Depends
         session_id=session_id,
         user_id=user_id
     )
-    response=network_agent_info.query(app_name=APP_NAME,
+    response= await network_agent_info.query(app_name=APP_NAME,
                                       user_message= query.user_message)
     
     if response:

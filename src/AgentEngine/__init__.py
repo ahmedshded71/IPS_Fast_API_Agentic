@@ -1,1 +1,1 @@
-from NetworkInfoAgent import NetworkInfoAgent
+from .NetworkInfoAgent import NetworkInfoAgent
