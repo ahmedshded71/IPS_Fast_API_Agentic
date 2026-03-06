@@ -6,12 +6,18 @@ import logging
 from AgentEngine.BaseAgent import BaseAgent
 from Tools.NetworkConfigration import DeviceInfoTools
 from google.genai import types # For creating message Content/Parts
+from google.adk.models.lite_llm import LiteLlm
+from .AgentProvidorFactory import AgentProviderFactory
+from AgentEnums import AgentProvider
+
+
+
 
 class NetworkInfoAgent:
     """
     Agent specialized in retrieving and reporting network info using DeviceInfoTools.
     """
-    def __init__(self, name: str, AgentModel: str,
+    def __init__(self, name: str, AgentModel: str|LiteLlm ,
                  user_id:str, session_id:str,
                 description: str = None, instruction: str = None):
         self.name = name
@@ -58,9 +64,9 @@ class NetworkInfoAgent:
             "Your responses should be concise, technical, and structured.",
         ])
 
-        self.base_agent = BaseAgent(
+        self.base_agent = AgentProviderFactory(
             name=self.name,
-            AgentModel=self.AgentModel,
+            provider=AgentProvider.GEMINI.value,
             description=description,
             instruction=instruction,
             tools=tools,

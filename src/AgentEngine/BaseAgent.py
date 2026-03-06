@@ -7,6 +7,7 @@ from google.genai import types
 from Tools.NetworkConfigration import DeviceInfoTools
 import warnings
 import logging
+from google.adk.models.lite_llm import LiteLlm
 
 warnings.filterwarnings("ignore")
 logging.basicConfig(level=logging.ERROR)
@@ -15,7 +16,7 @@ logging.basicConfig(level=logging.ERROR)
 class BaseAgent:
     def __init__(self, name: str,
                 #   API_KEY: str, 
-                  AgentModel: str,
+                  AgentModel: str | LiteLlm,
                  description: str, instruction: str, tools: list,
                  user_id:str, session_id:str,
                  session_service: InMemorySessionService = None):
