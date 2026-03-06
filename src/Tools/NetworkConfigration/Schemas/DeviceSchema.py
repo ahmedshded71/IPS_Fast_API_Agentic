@@ -1,38 +1,33 @@
 from pydantic import BaseModel, Field
-from pydantic_settings import BaseSettings
-
 
 
 class DeviceSchema(BaseModel):
 
-
-    class RouterConfig ( BaseModel):    
+    class RouterConfig(BaseModel):    
         ip: str = Field(..., example="192.168.1.1")
         dhcp: bool = Field(..., example=True)
         firewall: str = Field(..., example="off")
         nat: bool = Field(..., example=False)
 
-
-    class SwitchConfig ( BaseModel):
+    class SwitchConfig(BaseModel):
         vlan: list[dict] = Field(..., example=[{"action": "allow", "protocol": "tcp", "port": 80}])
         port_security: list[dict] = Field(..., example=[{"port": 1, "mac_address": "00:11:22:33:44:55", "action": "deny"}])
         stp: bool = Field(..., example=True)
         qos: bool = Field(..., example=True)
 
-        
-    class FirewallConfig ( BaseModel):
+    class FirewallConfig(BaseModel):
         rules: list[dict] = Field(..., example=[{"action": "allow", "protocol": "tcp", "port": 80}])
         default_action: str = Field(..., example="deny")
         logging: bool = Field(..., example=True)
         intrusion_detection: bool = Field(..., example=True)
 
-    class PCConfig ( BaseModel):
+    class PCConfig(BaseModel):
         ip: str = Field(..., example="192.168.1.2")
         dhcp: bool = Field(..., example=True)
         firewall: str = Field(..., example="on")
         nat: bool = Field(..., example=True)
     
-    class CloudProviderConfig ( BaseModel):
+    class CloudProviderConfig(BaseModel):
         cloud_ip_address: str = Field(..., example="192.168.1.100")
         cloud_dhcp: bool = Field(..., example=True)
         cloud_nat: bool = Field(..., example=False)
@@ -46,6 +41,3 @@ class DeviceSchema(BaseModel):
         cloud_ports: list[dict] = Field(..., example=[{"id": 1, "name": "Port1", "status": "up"}])
         cloud_qos: str = Field(..., example="high")
         cloud_stp: bool = Field(..., example=True)
-        
-
-

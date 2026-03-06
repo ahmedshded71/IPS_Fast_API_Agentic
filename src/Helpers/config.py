@@ -5,10 +5,18 @@ from typing import List
 from dotenv import load_dotenv
 import os
 class Settings(BaseSettings):
-    GOOGLE_API_KEY: str
-    OPENAI_API_KEY: str
+
     APP_NAME:str
     APP_VERSION:str
+
+
+    GOOGLE_API_KEY: str
+    OPENAI_API_KEY: str
+    MODEL_GEMINI_2_5_FLASH:str
+    OLLAMA_MODEL:str
+    OLLAMA_API_KEY:str
+
+
     #router settings
     IP_address: str 
     DHCP: bool
@@ -76,7 +84,7 @@ class Settings(BaseSettings):
 
 
 
-    MODEL_GEMINI_2_5_FLASH:str
+
 
 
     model_config = SettingsConfigDict(env_file=".env")
