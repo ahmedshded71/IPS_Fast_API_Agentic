@@ -1,7 +1,7 @@
 import os
 from typing import Optional, List, Any
 from .AgentEnums import AgentProvider
-from .BaseAgent import BaseAgent
+from .Agents import BaseAgent
 from google.adk.models.lite_llm import LiteLlm
 
 MODEL_GPT_4O = None

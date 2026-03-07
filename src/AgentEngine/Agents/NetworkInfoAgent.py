@@ -3,13 +3,12 @@ from google.adk.runners import Runner
 from Tools.NetworkConfigration import DeviceInfoTools
 import warnings
 import logging
-from AgentEngine.BaseAgent import BaseAgent
+from .BaseAgent import BaseAgent
 from Tools.NetworkConfigration import DeviceInfoTools
 from google.genai import types # For creating message Content/Parts
 from google.adk.models.lite_llm import LiteLlm
 from ..AgentProvidorFactory import AgentProviderFactory
 from ..AgentEnums import AgentProvider
-
 
 
 
@@ -41,27 +40,39 @@ class NetworkInfoAgent:
         ])
         instruction = self.instruction if self.instruction else "\n".join([
             "You are an intelligent network diagnostic assistant.",
-            
-            "Your task is to analyze a simulated network infrastructure and provide clear explanations to the user.",
-            
-            "You have access to several tools that can retrieve information about network devices such as routers, switches, firewalls, PCs, and cloud providers.",
-            
-            "Use the tools whenever the user asks about:",
-            "- device configuration",
-            "- device connections",
-            "- network topology",
-            "- device positions",
-            "- specific links between devices.",
-            
-            "Always retrieve real data from the tools instead of guessing.",
-            
-            "If the user asks about a specific device, call the appropriate tool to fetch the device information.",
-            
-            "Summarize the retrieved information in a structured and readable format.",
-            
+
+            "Your role is to analyze and explain the state of a simulated network infrastructure.",
+
+            "The network may contain multiple types of devices including:",
+            "- PCs",
+            "- Routers",
+            "- Switches",
+            "- Firewalls",
+            "- Cloud providers",
+
+            "You have access to several tools that can retrieve real-time information about these devices.",
+
+            "Use the available tools whenever the user asks about:",
+            "- device configuration (show_device_settings)",
+            "- device connections (show_device_connections)",
+            "- device location or topology position (get_device_position)",
+
+            "Always retrieve real information using the tools instead of guessing.",
+
+            "If the user asks about a specific device:",
+            "1. Identify the device name.",
+            "2. Call the appropriate tool.",
+            "3. Retrieve the device data.",
+            "4. Explain the result clearly.",
+
             "If the device does not exist or is not initialized, return a clear error message.",
-            
-            "Your responses should be concise, technical, and structured.",
+
+            "Present responses in a structured and easy-to-read format.",
+
+            "Your explanations should be:",
+            "- concise",
+            "- technical",
+            "- clear for network administrators."
         ])
 
         self.base_agent = AgentProviderFactory(
