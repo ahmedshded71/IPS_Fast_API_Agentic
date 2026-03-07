@@ -1,11 +1,12 @@
 import os
 from typing import Optional, List, Any
-from AgentEnums import AgentProvider
+from .AgentEnums import AgentProvider
 from .BaseAgent import BaseAgent
 from google.adk.models.lite_llm import LiteLlm
 
-MODEL_GPT_4O = os.getenv("MODEL_GPT_4O", "openai/gpt-4o")
-LAMA_MODEL = os.getenv("LAMA_MODEL", "gemma2:9b-instruct-q5_0")
+MODEL_GPT_4O = None
+LAMA_MODEL = None
+GMI_MODEL=os.getenv("MODEL_GEMINI_2_5_FLASH")
 
 class AgentProviderFactory:
     def __init__(self, name: str, provider: str, tools: List[Any],
@@ -36,7 +37,7 @@ class AgentProviderFactory:
         elif self.provider == AgentProvider.GEMINI.value:
             return BaseAgent(
                 name=self.name,
-                AgentModel=LAMA_MODEL, 
+                AgentModel=GMI_MODEL, 
                 description=self.description,
                 instruction=self.instruction,
                 tools=self.tools,

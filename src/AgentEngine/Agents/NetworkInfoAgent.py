@@ -7,8 +7,8 @@ from AgentEngine.BaseAgent import BaseAgent
 from Tools.NetworkConfigration import DeviceInfoTools
 from google.genai import types # For creating message Content/Parts
 from google.adk.models.lite_llm import LiteLlm
-from .AgentProvidorFactory import AgentProviderFactory
-from AgentEnums import AgentProvider
+from ..AgentProvidorFactory import AgentProviderFactory
+from ..AgentEnums import AgentProvider
 
 
 
@@ -72,7 +72,8 @@ class NetworkInfoAgent:
             tools=tools,
             user_id=self.user_id,
             session_id=self.session_id
-        )
+        ).create()
+        
 
     async def query(self, user_message: str, app_name: str):
         """Send a query to the NetworkInfoAgent and return its response."""

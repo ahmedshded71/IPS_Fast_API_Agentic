@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from fastapi import FastAPI
 from routes import base,StartDevice,AgentSession
 from Helpers import get_settings
@@ -23,8 +25,7 @@ async def startup_span():
         PC1.initialize(settings)
         PC2.initialize(settings)
 
-        #set var env
-        load_dotenv()  
+
         os.environ["GOOGLE_API_KEY"] = settings.GOOGLE_API_KEY
         os.environ["OPENAI_API_KEY"] = settings.OPENAI_API_KEY
         os.environ["MODEL_GEMINI_2_5_FLASH"] = settings.MODEL_GEMINI_2_5_FLASH
