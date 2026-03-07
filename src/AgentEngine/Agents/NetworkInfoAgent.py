@@ -44,7 +44,7 @@ class NetworkInfoAgent:
             "Your role is to analyze and explain the state of a simulated network infrastructure.",
 
             "The network may contain multiple types of devices including:",
-            "- PCs",
+            "- PCs like PC1 or PC2 ",
             "- Routers",
             "- Switches",
             "- Firewalls",
