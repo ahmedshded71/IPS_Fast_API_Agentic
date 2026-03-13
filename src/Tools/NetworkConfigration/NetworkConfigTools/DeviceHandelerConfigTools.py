@@ -1,5 +1,5 @@
-from Schemas import DeviceSchema
-from SimulatedDevice import VirtualFirewall,VirtualRouter,VirtualSwitch
+from ..Schemas import DeviceSchema
+from ..SimulatedDevice import VirtualFirewall,VirtualRouter,VirtualSwitch
 
 class DeviceHandelerConfigTools:
 

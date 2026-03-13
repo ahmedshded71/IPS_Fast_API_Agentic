@@ -1,15 +1,27 @@
 from enum import Enum
 
 
-class NetworkConfigrationTools(str, Enum):
-    DEVICE_INFO = "device_info"
-    NETWORK_TOPOLOGY = "network_topology"
-    TRAFFIC_ANALYSIS = "traffic_analysis"
-    SECURITY_ASSESSMENT = "security_assessment"
-    CONFIGURATION_MANAGEMENT = "configuration_management"
-    PERFORMANCE_MONITORING = "performance_monitoring"
-    ALERTING_AND_LOGGING = "alerting_and_logging"
-    VULNERABILITY_SCANNING = "vulnerability_scanning"
-    PATCH_MANAGEMENT = "patch_management"
-    BACKUP_AND_RECOVERY = "backup_and_recovery"
+class NetworkConfigrationToolsEnums(str, Enum):
+
+    DEVICE_CONFIGRATION_RESPONSE = "DEVICE CONFIGERED SUCCESSFULLY"
+    DEVICE_CONFIGRATION_FAILED = "DEVICE CONFIGURATION FAILED"
+    VIRTUAL_CLOUD_PROVIDER_CONFIGRATION = "VIRTUAL CLOUD PROVIDER CONFIGURATION"
+    VIRTUAL_FIREWALL_CONFiGRATION = "VIRTUAL FIREWALL CONFIGURATION"
+    VIRTUAL_ROUTER_CONFIGRATION = "VIRTUAL ROUTER CONFIGURATION"
+    VIRTUAL_SWITCH_CONFIGRATION = "VIRTUAL SWITCH CONFIGURATION"
+    VIRTUAL_PC1_CONFIGRATION = "VIRTUAL PC1 CONFIGURATION"
+    VIRTUAL_PC2_CONFIGRATION = "VIRTUAL PC2 CONFIGURATION"
+
+
+
+    # DEVICE_INFO = "device_info"
+    # NETWORK_TOPOLOGY = "network_topology"
+    # TRAFFIC_ANALYSIS = "traffic_analysis"
+    # SECURITY_ASSESSMENT = "security_assessment"
+    # CONFIGURATION_MANAGEMENT = "configuration_management"
+    # PERFORMANCE_MONITORING = "performance_monitoring"
+    # ALERTING_AND_LOGGING = "alerting_and_logging"
+    # VULNERABILITY_SCANNING = "vulnerability_scanning"
+    # PATCH_MANAGEMENT = "patch_management"
+    # BACKUP_AND_RECOVERY = "backup_and_recovery"
     

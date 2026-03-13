@@ -1,15 +1,13 @@
 from enum import Enum
 
 class DeviceType(Enum):
-    Firewall = "Firewall"
-    Router = "Router"
-    Switch = "Switch"
+    FIREWALL = "FIREWALL"
+    ROUTER = "ROUTER"
+    SWITCH = "SWITCH"
+    PC1 = "PC1"
+    PC2 = "PC2"
+    CLOUD = "CLOUD_PROVIDER"
 
-class RouterConfigStatus(Enum):
-    Configured = "Configured"
-    NotConfigured = "Not Configured"
-    IP_changed = "IP Changed"
-    NAT_enabled = "NAT Enabled"
-    NAT_disabled = "NAT Disabled"
-    DHCP_enabled = "DHCP Enabled"
-    DHCP_disabled = "DHCP Disabled"
+class DeviceConnectionStatus(Enum):
+    CONNECTED = "Connected"
+    DISCONNECTED = "Disconnected"

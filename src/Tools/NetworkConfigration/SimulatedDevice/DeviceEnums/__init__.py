@@ -1,2 +1,2 @@
-from DeviceEnums import DeviceType
-from DeviceEnums import RouterConfigStatus
+from .DeviceEnums import DeviceType
+from .DeviceEnums import DeviceConnectionStatus
